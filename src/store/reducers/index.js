@@ -8,7 +8,6 @@ const initialState = {
 };
 
 export default function rootReducer(state = initialState, action) {
-  console.log(action, state);
   switch (action.type) {
     case FETCH_RESTAURANTS_LOADING: {
         const newState = { ...state };

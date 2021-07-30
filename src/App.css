@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+body {
+    background: #fff;
+}
+
+.side-bar {
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background: #f7f7f7;
+    border-radius: 0px 24px 24px 0px;
+    box-sizing: border-box;
+    padding: 30px 20px;
+}
+
+.side-bar .top-section {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.side-bar .top-section .logo {
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.side-bar .top-section .logo img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.side-bar .top-section .app-name {
+    font-weight: bold;
+    margin-left: 8px;
+}
+
+.side-bar .menu-items {
+    margin: 5px 0;
+    position: relative;
+}
+
+.side-bar .menu-items .menu-item {
+    color: #333;
+    text-decoration: none;
+    font-size: 15px;
+    display: block;
+    cursor: pointer;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    box-sizing: border-box;
+    padding: 16px;
+    border-radius: 12px;
+}
+
+.side-bar .menu-items .menu-item-active {
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+    display: block;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    box-sizing: border-box;
+    padding: 16px;
+    border-radius: 12px;
+    background: #503E9D;
+}
+
+.side-bar-footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.side-bar-footer h5 {
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.side-bar-footer p {
+    font-size: 12px;
+    color: gray;
+}
