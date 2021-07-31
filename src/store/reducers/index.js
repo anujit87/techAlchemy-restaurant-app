@@ -1,4 +1,4 @@
-import { FETCH_RESTAURANTS_FAILURE, FETCH_RESTAURANTS_LOADING, FETCH_RESTAURANTS_SUCCESS, FETCH_RESTAURANT_DETAILS_FAILURE, FETCH_RESTAURANT_DETAILS_LOADING, FETCH_RESTAURANT_DETAILS_SUCCESS } from "../constants";
+import { FETCH_RESTAURANTS_FAILURE, FETCH_RESTAURANTS_LOADING, FETCH_RESTAURANTS_SUCCESS, FETCH_RESTAURANT_DETAILS_FAILURE, FETCH_RESTAURANT_DETAILS_LOADING, FETCH_RESTAURANT_DETAILS_SUCCESS, UPDATE_FILTER } from "../constants";
 
 const initialState = {
     restaurants: {
@@ -8,6 +8,11 @@ const initialState = {
     restaurantDetails: {
         data: undefined,
         status: 'LOADING'
+    },
+    appliedFilter: {
+        search: '',
+        cuisines: ['All'],
+        sortByOpen: false
     }
 };
 
@@ -47,6 +52,11 @@ export default function rootReducer(state = initialState, action) {
         const newState = { ...state };
         newState.restaurantDetails.data = action.payload;
         newState.restaurantDetails.status = 'SUCCESS';
+        return newState;
+    }
+    case UPDATE_FILTER: {
+        const newState = { ...state };
+        newState.appliedFilter = action.payload;
         return newState;
     }
     default:

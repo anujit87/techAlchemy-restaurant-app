@@ -1,6 +1,7 @@
 import { Box, Grid, IconButton, InputAdornment, makeStyles, TextField, Typography } from '@material-ui/core';
 import { Search, ShoppingCart } from '@material-ui/icons';
 import React, { useEffect, useMemo, useState } from 'react';
+import { useCallback } from 'react';
 import { ChevronLeft } from 'react-feather';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
@@ -8,6 +9,7 @@ import { Colors } from '../../colors';
 import CategoryItem from '../../components/common/CategoryItem';
 import { CATEGORIES } from '../../constants';
 import fetchRestaurants from '../../store/actions';
+import { UPDATE_FILTER } from '../../store/constants';
 import FilterComponent from './FilterComponent';
 import RestaurantCardSkeleton from './RestaurantCardSkeleton';
 import RestaurantItem from './RestaurantItem';
@@ -39,22 +41,37 @@ const useStyles = makeStyles(() => ({
 const Home = () => {
     const classes = useStyles();
     
-    const [searchTerm, setSearchTerm] = useState('');
-    const { restaurants } = useSelector(state => state);
+    const { restaurants, appliedFilter } = useSelector(state => state);
+    const [searchTerm, setSearchTerm] = useState(appliedFilter.search);
+    console.log(appliedFilter)
     const history = useHistory();
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(fetchRestaurants());
     }, [dispatch]);
 
+    const onKeyDown = useCallback(
+        (event) => {
+            if (event.keyCode === 13) dispatch({ type: UPDATE_FILTER, payload: { ...appliedFilter, search: searchTerm }});
+        },
+        [dispatch, appliedFilter, searchTerm]
+    );
+
     const filteredRestaurants = useMemo(
         () => {
-            if (searchTerm !== '') {
-                return restaurants.data.filter(res => res.restaurantName.toLowerCase().includes(searchTerm.toLowerCase()));
+            let finalList = [...restaurants.data];
+            if (appliedFilter.cuisines.length > 0 && appliedFilter.cuisines[0] !== 'All') {
+                finalList =  finalList.filter(res => res.restaurantCuisine.includes(appliedFilter.cuisines[0]));
             }
-            return restaurants.data;
+            if (appliedFilter.search !== '') {
+                finalList = finalList.filter(res => res.restaurantName.toLowerCase().includes(appliedFilter.search.toLowerCase()));
+            }
+            if (appliedFilter.sortByOpen) {
+                finalList = finalList.sort((a, b) => b.isOpen - a.isOpen);
+            }
+            return finalList;
         },
-        [restaurants.data, searchTerm]
+        [restaurants.data, appliedFilter]
     );
 
     return (
@@ -80,6 +97,7 @@ const Home = () => {
                         className={classes.textbox}
                         value={searchTerm}
                         onChange={e => setSearchTerm(e.target.value)}
+                        onKeyDown={onKeyDown}
                     />
                     <FilterComponent />
                     <IconButton

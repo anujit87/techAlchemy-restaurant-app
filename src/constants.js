@@ -4,7 +4,7 @@ import HotDishLogo from './assets/HotDish.png';
 import SweetLogo from './assets/Sweet.png';
 
 
-export const CUISINES = ['All', 'Fast food', 'American food', 'Pizza', 'Asian', 'Dessert', 'Mexican', 'Breakfast'];
+export const CUISINES = ['All', 'Fast Food', 'American food', 'Pizza', 'Asian', 'Dessert', 'Mexican', 'Breakfast'];
 export const CATEGORIES = [
     { name: 'Baked', logo: BakedLogo },
     { name: 'Sweet', logo: SweetLogo },
