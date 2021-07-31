@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import logo from '../assets/logo.png';
-import Home from './Home';
+import logo from '../../assets/logo.png';
+import Home from '../../views/Home/Home';
 import MenuItem from './MenuItem';
-import Settings from './Settings';
 import * as Icon from 'react-feather';
 
 export const sidebarItems = [
@@ -36,7 +35,7 @@ export const sidebarItems = [
     {
         name: 'Settings',
         to: '/settings',
-        component: Settings,
+        component: () => (<p>Settings</p>),
         icon: <Icon.Settings size={20} />
     }
 ];

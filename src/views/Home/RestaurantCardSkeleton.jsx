@@ -1,11 +1,18 @@
-import { Box, Grid } from '@material-ui/core';
+import { Box, Grid, makeStyles } from '@material-ui/core';
 import React from 'react'
-import SentenceSkeleton from './SentenceSkeleton';
+import SentenceSkeleton from '../../components/common/SentenceSkeleton';
+
+const useStyles = makeStyles(() => ({
+    margin: {
+        margin: '8px 0px'
+    }
+}));
 
 const RestaurantCardSkeleton = () => {
+    const classes = useStyles();
     return (
         <Box>
-            <Box style={{ margin: '8px 0px' }}>
+            <Box className={classes.margin}>
                 <SentenceSkeleton height="176px" />
             </Box>
             <Grid container>
@@ -17,10 +24,10 @@ const RestaurantCardSkeleton = () => {
                     <SentenceSkeleton height="24px" />
                 </Grid>
             </Grid>
-            <Box style={{ margin: '8px 0px' }}>
+            <Box className={classes.margin}>
                 <SentenceSkeleton height="14px" />
             </Box>
-            <Box style={{ margin: '8px 0px' }}>
+            <Box className={classes.margin}>
                 <SentenceSkeleton height="14px" />
             </Box>
             <SentenceSkeleton height="14px" />

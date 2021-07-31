@@ -4,9 +4,9 @@ import { applyMiddleware, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from './store/reducers';
 import './App.css';
-import Sidebar, { sidebarItems } from './components/Sidebar';
+import Sidebar, { sidebarItems } from './components/Sidebar/Sidebar';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import RestaurantDetails from './components/RestaurantDetails';
+import RestaurantDetails from './views/RestaurantDetails/RestaurantDetails';
 
 const store = createStore(rootReducer, applyMiddleware(thunk))
 
