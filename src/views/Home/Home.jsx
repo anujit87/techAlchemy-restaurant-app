@@ -115,8 +115,8 @@ const Home = () => {
             </Box>
             <Typography variant="h5" style={{ margin: '24px 0px' }}>Restaurants</Typography>
             <Grid container spacing={2}>
-                {restaurants.status === 'LOADING' && [0, 1, 2].map(num => (
-                    <Grid item md={4} key={`skeleton-num`}>
+                {restaurants.status === 'LOADING' && [0, 1, 2, 3, 4, 5].map(num => (
+                    <Grid item md={4} key={`skeleton-${num}`}>
                         <RestaurantCardSkeleton />
                     </Grid>
                 ))}
