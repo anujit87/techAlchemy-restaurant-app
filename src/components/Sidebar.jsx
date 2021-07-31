@@ -72,7 +72,7 @@ const Sidebar = () => {
             </div>
 
             <div className="menu-items">
-                <ul>
+                <ul style={{ paddingLeft: 0 }}>
                     {sidebarItems.map((menuItem) => (
                         <MenuItem
                             key={menuItem.name}

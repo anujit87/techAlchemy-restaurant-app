@@ -18,7 +18,7 @@ const MenuItem = (props) => {
             >
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                     {icon}
-                    <p style={{ marginLeft: '8px' }}>{name}</p>
+                    <p style={{ marginLeft: '8px', marginBottom: 0 }}>{name}</p>
                 </div>
             </Link>
         </li>

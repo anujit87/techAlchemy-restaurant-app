@@ -6,7 +6,7 @@ export default function fetchRestaurants() {
     try {
         dispatch({ type: FETCH_RESTAURANTS_LOADING })
       const response = await apiFetchRestaurants();
-      dispatch({ type: FETCH_RESTAURANTS_SUCCESS, payload: { restaurants: response.data.data } });
+      dispatch({ type: FETCH_RESTAURANTS_SUCCESS, payload: response.data.allRestaurants });
     } catch (e) {
         dispatch({ type: FETCH_RESTAURANTS_FAILURE })
       console.log(e);
