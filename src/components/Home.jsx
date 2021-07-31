@@ -3,6 +3,7 @@ import { FilterList, Search, ShoppingCart } from '@material-ui/icons'
 import React, { useEffect } from 'react'
 import { ChevronLeft } from 'react-feather'
 import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import BakedLogo from '../assets/Baked.png'
 import FastFoodLogo from '../assets/FastFood.png'
 import HotDishLogo from '../assets/HotDish.png'
@@ -15,7 +16,7 @@ import RestaurantItem from './RestaurantItem'
 
 const Home = () => {
     const { restaurants } = useSelector(state => state);
-    console.log(restaurants)
+    const history = useHistory();
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(fetchRestaurants());
@@ -85,7 +86,7 @@ const Home = () => {
                     </Grid>
                 ))}
                 {restaurants.data.map(restaurant => (
-                    <Grid item md={4} style={{ marginBottom: '8px' }} key={`restaurant-${restaurant.id}`}>
+                    <Grid onClick={() => history.push(`/restaurant/${restaurant.id}`)} item md={4} style={{ marginBottom: '8px', cursor: 'pointer' }} key={`restaurant-${restaurant.id}`}>
                         <RestaurantItem restaurant={restaurant} />
                     </Grid>
                 ))}

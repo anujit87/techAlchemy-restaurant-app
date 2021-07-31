@@ -18,12 +18,12 @@ const RestaurantCardSkeleton = () => {
                 </Grid>
             </Grid>
             <Box style={{ margin: '8px 0px' }}>
-                <SentenceSkeleton height="14px" className="mt-2" />
+                <SentenceSkeleton height="14px" />
             </Box>
             <Box style={{ margin: '8px 0px' }}>
-                <SentenceSkeleton height="14px" className="mt-2" />
+                <SentenceSkeleton height="14px" />
             </Box>
-            <SentenceSkeleton height="14px" className="mt-2" />
+            <SentenceSkeleton height="14px" />
         </Box>
     )
 }

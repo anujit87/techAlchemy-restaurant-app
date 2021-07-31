@@ -6,6 +6,7 @@ import rootReducer from './store/reducers';
 import './App.css';
 import Sidebar, { sidebarItems } from './components/Sidebar';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import RestaurantDetails from './components/RestaurantDetails';
 
 const store = createStore(rootReducer, applyMiddleware(thunk))
 
@@ -18,8 +19,9 @@ function App() {
           <div style={{ marginLeft: '300px'}}>
             <Switch>
               {sidebarItems.map(route => (
-                <Route exact path={route.to} component={route.component} />
+                <Route key={route.name} exact path={route.to} component={route.component} />
               ))}
+              <Route exact path="/restaurant/:id" component={RestaurantDetails} />
             </Switch>
           </div>
         </Router>
