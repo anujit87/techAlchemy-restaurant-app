@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import * as Icon from 'react-feather';
 import { useLocation } from 'react-router-dom';
 import logo from '../../assets/logo.png';
 import Home from '../../views/Home/Home';
+import CardsContainer from './CardsContainer';
 import MenuItem from './MenuItem';
-import * as Icon from 'react-feather';
 
 export const sidebarItems = [
     {
@@ -83,7 +83,7 @@ const Sidebar = () => {
                     ))}
                 </ul>
             </div>
-
+            <CardsContainer />
             <div className="side-bar-footer">
                 <div className="user-info">
                     <h5>Mark Clarke</h5>

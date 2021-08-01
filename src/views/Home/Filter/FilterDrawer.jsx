@@ -4,9 +4,9 @@ import React from 'react'
 import { useState } from 'react';
 import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Colors } from '../../colors';
-import { CUISINES } from '../../constants';
-import { UPDATE_FILTER } from '../../store/constants';
+import { Colors } from '../../../colors';
+import { CUISINES } from '../../../constants';
+import { UPDATE_FILTER } from '../../../store/constants';
 
 const useStyles = makeStyles(() => ({
     root: { width: '30vw', padding: '16px', height: '100%' },

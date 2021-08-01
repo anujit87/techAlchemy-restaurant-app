@@ -1,7 +1,7 @@
 import { IconButton } from '@material-ui/core';
 import { FilterList } from '@material-ui/icons';
 import React, { useState } from 'react';
-import { Colors } from '../../colors';
+import { Colors } from '../../../colors';
 import FilterDrawer from './FilterDrawer';
 
 const FilterComponent = () => {

@@ -10,7 +10,7 @@ import CategoryItem from '../../components/common/CategoryItem';
 import { CATEGORIES } from '../../constants';
 import fetchRestaurants from '../../store/actions';
 import { UPDATE_FILTER } from '../../store/constants';
-import FilterComponent from './FilterComponent';
+import FilterComponent from './Filter/FilterComponent';
 import RestaurantCardSkeleton from './RestaurantCardSkeleton';
 import RestaurantItem from './RestaurantItem';
 
